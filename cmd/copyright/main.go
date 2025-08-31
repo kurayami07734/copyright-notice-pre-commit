@@ -89,15 +89,11 @@ func runCheck(args []string) {
 	for _, result := range results {
 		if !result.HasCopyright {
 			missingCount++
-			if *verbose {
-				fmt.Printf("MISSING: %s\n", result.Path)
-			}
+			fmt.Printf("MISSING: %s\n", result.Path)
 		} else if result.IsOutdated() {
 			outdatedCount++
-			if *verbose {
-				fmt.Printf("OUTDATED: %s (year: %d)\n", result.Path, result.CopyrightYear)
-			}
-		} else if *verbose {
+			fmt.Printf("OUTDATED: %s (year: %d)\n", result.Path, result.CopyrightYear)
+		} else {
 			fmt.Printf("OK: %s\n", result.Path)
 		}
 	}
