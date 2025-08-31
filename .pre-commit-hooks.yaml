@@ -1,0 +1,9 @@
+-   id: copyright-notice-fixer
+    name: Copyright Notice fixer
+    description: Checks and updates copyright notices in changed files
+    language: golang
+    stages: [pre-commit]
+    types: [text]
+    fail_fast: true
+    entry: copyright check
+    minimum_pre_commit_version: 3.0.0
