@@ -37,3 +37,23 @@ call our CLI with the file names that were part of changed files
 3. Explore integration with [pre-commit framework](https://pre-commit.com/#golang)
 
 5. Feature for custom template for copyright notices 
+
+## Dev Notes:
+
+1. For Testing, run these commands:
+    1. Test check command: (IMPLEMENTED)
+        `go run cmd/copyright/main.go check --company "Test Corp" main.go`
+    2. Test fix command: (NOT IMPLEMENTED)
+        `go run cmd/copyright/main.go fix --auto-fix main.go`
+    3. Test check command files inside folder "test-files":
+        `go run cmd/copyright/main.go check --verbose test-files/`
+    4. Test with a custom company name
+        `go run cmd/copyright/main.go check --company "Your Company" --verbose *.go`
+
+2. Right now it detects:
+
+    ✅ // Copyright 2024 Acme Inc
+    ✅ # Copyright (C) 2023 Company
+    ✅ /* Copyright 2022 */
+    ❌ Doesn't validate company name match
+    ❌ Doesn't check exact format compliance
